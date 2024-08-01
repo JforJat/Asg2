@@ -23,20 +23,22 @@ class ViewExpenseActivity : AppCompatActivity() {
         setContentView(R.layout.activity_view_expense)
 
         expenseViewModel = ViewModelProvider(this).get(ExpenseViewModel::class.java)
-//
-//        expenseViewModel.getAllExpenses()?.observe(this) {
-//            it.let {
-//                for (expense in it) {
-//                    expenseList.add(arrayOf(expense.expenseName, expense.amount.toString(), expense.date))
-//                }
-//                adapter?.notifyDataSetChanged()
-//            }
-//        }
+
+        expenseViewModel.getAllExpenses()?.observe(this) {
+            it.let {
+                for (expense in it) {
+                    expenseList.add(arrayOf(expense.expenseName, expense.amount.toString(), expense.date))
+                }
+                adapter?.notifyDataSetChanged()
+            }
+        }
 
 //        Set RecyclerView
-//        findViewById<RecyclerView>(R.id.recyclerView).adapter = adapter
-//        findViewById<RecyclerView>(R.id.recyclerView).layoutManager = LinearLayoutManager(this)
-//
+        findViewById<RecyclerView>(R.id.recyclerView).adapter = adapter
+        findViewById<RecyclerView>(R.id.recyclerView).layoutManager = LinearLayoutManager(this)
+
+
+
 
 
         val btnBackToMainMenu: Button = findViewById(R.id.btnBackToMainMenu)

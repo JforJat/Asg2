@@ -37,7 +37,8 @@ class ExpenseAdapter(context: Context, expenseList: ArrayList<Array<String>>) : 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ExpenseViewHolder {
         // Inflate the item layout
-        val view = LayoutInflater.from(mContext).inflate(R.layout.activity_view_expense, parent, false)
+        val view = View.inflate(mContext, R.layout.layout_expense_item, null)
+
         // Return a new ViewHolder
         return ExpenseViewHolder(view)
     }
@@ -54,7 +55,7 @@ class ExpenseAdapter(context: Context, expenseList: ArrayList<Array<String>>) : 
         holder.expenseName.text = expense[0]
         holder.amount.text = expense[1]
         //holder.category.text = expense[2]
-        holder.date.text = expense[3]
+        holder.date.text = expense[2]
         //holder.time.text = expense[4]
         //holder.paymentType.text = expense[5]
     }

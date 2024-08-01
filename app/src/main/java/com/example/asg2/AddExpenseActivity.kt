@@ -12,17 +12,22 @@ import android.widget.Spinner
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.ViewModelProvider
 import com.example.asg2.Data.Expense
+import com.example.asg2.Data.ExpenseViewModel
 import java.util.Calendar
 
 class AddExpenseActivity : AppCompatActivity() {
     private lateinit var viewExpenseActivity: ViewExpenseActivity
 
+    private lateinit var expenseViewModel: ExpenseViewModel
 
     @SuppressLint("SetTextI18n", "DefaultLocale", "MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_expense)
+
+        expenseViewModel = ViewModelProvider(this).get(ExpenseViewModel::class.java)
 
         // Setup Category Spinner
         val spinnerCategory: Spinner = findViewById(R.id.spCategory)
@@ -141,7 +146,8 @@ class AddExpenseActivity : AppCompatActivity() {
         )
 
         builder.setPositiveButton("Confirm") { _, _ ->
-            // Here, you can add the expense to the database or perform necessary actions
+            // Add expense to the database
+            expenseViewModel.insert(expenseEntity)
 
             // Show a toast message
             showToast("Expense added")
