@@ -1,4 +1,4 @@
-package com.example.asg2
+package com.example.asg2.Data
 
 import android.app.Application
 import androidx.lifecycle.LiveData
@@ -6,14 +6,14 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-class ExpenseRepository(application: Application) {
+class ExpenseRepository(application: Application?) {
     private var expenseDao: ExpenseDao
     private val coroutineScope = CoroutineScope(Dispatchers.IO)
 
     var expenses: LiveData<List<Expense>>
 
     init {
-        val db = ExpenseDatabase.getDatabase(application)
+        val db = ExpenseDatabase.getDatabase(application!!)
         expenseDao = db!!.getExpenseDao()
         expenses = expenseDao.getAllExpense()
     }

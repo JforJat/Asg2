@@ -1,11 +1,13 @@
-package com.example.asg2
+package com.example.asg2.Data
 
 import androidx.lifecycle.LiveData
+import androidx.room.Dao
 import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.Query
 import androidx.room.Update
 
+@Dao
 interface ExpenseDao {
     @Insert
     fun addExpense(expense: Expense)
@@ -24,6 +26,5 @@ interface ExpenseDao {
 
     @Query("SELECT * FROM expense")
     fun getAllExpense(): LiveData<List<Expense>>
-
 
 }

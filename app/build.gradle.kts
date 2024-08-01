@@ -1,6 +1,9 @@
 plugins {
-    alias(libs.plugins.android.application)
-    alias(libs.plugins.jetbrains.kotlin.android)
+    //alias(libs.plugins.android.application)
+    //alias(libs.plugins.jetbrains.kotlin.android)
+    id("com.android.application")
+    id("org.jetbrains.kotlin.android")
+    id("kotlin-kapt")
 }
 
 android {
@@ -16,8 +19,6 @@ android {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
-
-
     buildTypes {
         release {
             isMinifyEnabled = false
@@ -27,11 +28,11 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = "17"
     }
 }
 
@@ -56,8 +57,25 @@ dependencies {
     annotationProcessor(libs.room.compiler)
     implementation(libs.androidx.lifecycle.viewmodel.ktx)
 
+
+    implementation(libs.androidx.room.runtime.v251)
+    annotationProcessor(libs.room.compiler)
+    androidTestImplementation(libs.androidx.room.testing)
+
+    kapt(libs.room.compiler)
+
+    implementation(libs.androidx.lifecycle.viewmodel)
+    implementation(libs.androidx.lifecycle.livedata)
+    implementation(libs.androidx.lifecycle.common.java8)
+    implementation(libs.lifecycle.viewmodel.ktx)
+
+
+
+
     // Exclude the old annotations library
     configurations.all {
         exclude(group = "com.intellij", module = "annotations")
     }
+
+
 }

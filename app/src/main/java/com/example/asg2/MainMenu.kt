@@ -19,7 +19,6 @@ class MainMenu : AppCompatActivity() {
         val btExit: Button = findViewById(R.id.btExit)
 
 
-
         // Set click listeners for buttons
         btViewExpense.setOnClickListener {
             val intent = Intent(this, ViewExpenseActivity::class.java)

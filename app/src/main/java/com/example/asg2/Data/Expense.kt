@@ -1,4 +1,4 @@
-package com.example.asg2
+package com.example.asg2.Data
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
@@ -6,7 +6,6 @@ import androidx.room.PrimaryKey
 
 // Expense entity
 @Entity(tableName = "expense")
-
 class Expense(
 
     @PrimaryKey(autoGenerate = true)

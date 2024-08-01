@@ -6,8 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.asg2.Data.Expense
 
-class ExpenseAdapter(context: Context, expenseList: ArrayList<Array<String>>) : RecyclerView.Adapter<ExpenseAdapter.ViewHolder>() {
+class ExpenseAdapter(context: Context, expenseList: ArrayList<Array<String>>) : RecyclerView.Adapter<ExpenseAdapter.ExpenseViewHolder>() {
 
     // List of expenses
     private var expens = listOf<Expense>()
@@ -16,7 +17,7 @@ class ExpenseAdapter(context: Context, expenseList: ArrayList<Array<String>>) : 
     private val mContext = context // Context passed in
     private val mExpenseList = expenseList
 
-    inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    inner class ExpenseViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var expenseName: TextView
         var amount: TextView
         //var category: TextView
@@ -34,36 +35,27 @@ class ExpenseAdapter(context: Context, expenseList: ArrayList<Array<String>>) : 
         }
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ExpenseViewHolder {
         // Inflate the item layout
         val view = LayoutInflater.from(mContext).inflate(R.layout.activity_view_expense, parent, false)
         // Return a new ViewHolder
-        return ViewHolder(view)
+        return ExpenseViewHolder(view)
     }
 
     override fun getItemCount(): Int {
-        // Return the size of the reporter list
+        // Return the size of the list
         return mExpenseList.size
     }
 
-    override fun onBindViewHolder(holder: ExpenseAdapter.ViewHolder, position: Int) {
-        val currentExpense = expens[position]
-        holder.expenseName.text = mExpenseList[position][0]
-        holder.amount.text = mExpenseList[position][1]
-        //holder.category.text = currentExpense.category
-        holder.date.text = mExpenseList[position][2]
-        //holder.time.text = currentExpense.time
-        //holder.paymentType.text = currentExpense.paymentType
-
+    override fun onBindViewHolder(holder: ExpenseViewHolder, position: Int) {
+        // Get the data at the position
+        val expense = mExpenseList[position]
+        // Set the data
+        holder.expenseName.text = expense[0]
+        holder.amount.text = expense[1]
+        //holder.category.text = expense[2]
+        holder.date.text = expense[3]
+        //holder.time.text = expense[4]
+        //holder.paymentType.text = expense[5]
     }
-
-    // ViewHolder class
-    //class ExpenseViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        //val expenseName: TextView = itemView.findViewById(R.id.expense_name)
-        //val amount: TextView = itemView.findViewById(R.id.expense_amount)
-        //val category: TextView = itemView.findViewById(R.id.category)
-        //val date: TextView = itemView.findViewById(R.id.expense_date)
-        //val time: TextView = itemView.findViewById(R.id.time)
-        //val paymentType: TextView = itemView.findViewById(R.id.payment_type)
-    //}
 }

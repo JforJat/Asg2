@@ -1,4 +1,4 @@
-package com.example.asg2
+package com.example.asg2.Data
 
 import android.content.Context
 import androidx.room.Database
@@ -9,7 +9,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-@Database(entities = [Expense::class], version = 1, exportSchema = false)
+@Database(entities = [Expense::class], version = 1, exportSchema = true)
 abstract class ExpenseDatabase : RoomDatabase() {
 
     // Define abstract methods for each DAO
@@ -18,7 +18,8 @@ abstract class ExpenseDatabase : RoomDatabase() {
     companion object {
         @Volatile
         private var dbInstance: ExpenseDatabase? = null
-        private val coroutineScope = CoroutineScope(Dispatchers.IO)
+
+        val coroutineScope = CoroutineScope(Dispatchers.IO)
 
         // Singleton pattern to ensure only one instance of the database
         private val dbCreationCallback = object : Callback() {
@@ -52,6 +53,8 @@ abstract class ExpenseDatabase : RoomDatabase() {
         fun getDatabase(context: Context): ExpenseDatabase? {
             if (dbInstance == null) {
                 synchronized(ExpenseDatabase::class.java) {
+
+//                     Create the database
                     dbInstance = databaseBuilder(
                         context.applicationContext,
                         ExpenseDatabase::class.java, "app_database"

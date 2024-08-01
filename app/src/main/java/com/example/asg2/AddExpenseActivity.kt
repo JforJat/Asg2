@@ -12,6 +12,7 @@ import android.widget.Spinner
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import com.example.asg2.Data.Expense
 import java.util.Calendar
 
 class AddExpenseActivity : AppCompatActivity() {
