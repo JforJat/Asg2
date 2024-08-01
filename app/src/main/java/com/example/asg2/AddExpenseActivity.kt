@@ -85,6 +85,10 @@ class AddExpenseActivity : AppCompatActivity() {
         paymentAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         spinnerPayment.adapter = paymentAdapter
 
+        val btnBackToMainMenu: Button = findViewById(R.id.btnBackToMainMenu)
+        btnBackToMainMenu.setOnClickListener {
+            finish()
+        }
         // Setup Submit Button
         val btnSubmit: Button = findViewById(R.id.btnSubmit)
         btnSubmit.setOnClickListener {
@@ -144,6 +148,8 @@ class AddExpenseActivity : AppCompatActivity() {
 
         builder.create().show()
     }
+
+
 
     // Helper functions
     private fun showToast(message: String) {
