@@ -9,11 +9,11 @@ import androidx.recyclerview.widget.RecyclerView
 
 class ExpenseAdapter(
     // Callback function for item click
-    private val onItemClick: (Expense_Entity) -> Unit,
+    private val onItemClick: (Expense) -> Unit,
 ) : RecyclerView.Adapter<ExpenseAdapter.ExpenseViewHolder>() {
 
     // List of expenses
-    private var expens = listOf<Expense_Entity>()
+    private var expens = listOf<Expense>()
 
     @SuppressLint("NotifyDataSetChanged")
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ExpenseViewHolder {
@@ -29,7 +29,7 @@ class ExpenseAdapter(
     override fun onBindViewHolder(holder: ExpenseViewHolder, position: Int) {
         val currentExpense = expens[position]
         holder.expenseName.text = currentExpense.expenseName
-        holder.amount.text = currentExpense.amount
+        holder.amount.text = currentExpense.amount.toString()
         holder.category.text = currentExpense.category
         holder.date.text = currentExpense.date
         holder.time.text = currentExpense.time
@@ -48,7 +48,7 @@ class ExpenseAdapter(
 
     // Update the list of expenses
     @SuppressLint("NotifyDataSetChanged")
-    fun submitList(newExpens: List<Expense_Entity>) {
+    fun submitList(newExpens: List<Expense>) {
         expens = newExpens
         notifyDataSetChanged()
     }

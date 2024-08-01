@@ -110,9 +110,9 @@ class AddExpenseActivity : AppCompatActivity() {
                 selectedPayment == "Select" -> showToast("Please select a payment type")
 
                 else -> {
-                    val expenseEntity = Expense_Entity(
+                    val expenseEntity = Expense(
                         expenseName = expenseName,
-                        amount = amount,
+                        amount = 0.0,
                         category = selectedCategory,
                         date = dateText,
                         time = timeText,
@@ -126,7 +126,7 @@ class AddExpenseActivity : AppCompatActivity() {
         }
     }
 
-    private fun showConfirmationDialog(expenseEntity: Expense_Entity) {
+    private fun showConfirmationDialog(expenseEntity: Expense) {
         val builder = AlertDialog.Builder(this)
         builder.setTitle("Confirm Expense")
         builder.setMessage(
