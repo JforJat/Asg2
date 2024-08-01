@@ -13,7 +13,7 @@ class ViewExpenseActivity(application: Application) : AndroidViewModel(applicati
     val allExpenses: LiveData<List<Expense>>
 
     init {
-        val expenseDao = AppDatabase.getDatabase(application).expenseDao()
+        val expenseDao = ExpenseDatabase.getDatabase(application).expenseDao()
         repository = ExpenseRepository(expenseDao)
         allExpenses = repository.getAllExpenses()
     }
