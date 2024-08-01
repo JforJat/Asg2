@@ -140,7 +140,7 @@ class AddExpenseActivity : AppCompatActivity() {
         )
 
         builder.setPositiveButton("Confirm") { _, _ ->
-            viewExpenseActivity.insert(expenseEntity)
+            //viewExpenseActivity.insert(expenseEntity)
             showToast("Expense added")
             clearInputs()
         }
