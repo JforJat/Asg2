@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#89cff0"
+    android:orientation="vertical"
+    tools:context=".MainMenu">
+
+
+    <TextView
+        android:id="@+id/tvMenuTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
+        android:text="@string/main_menu_in_main"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btViewExpense"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="96dp"
+        android:layout_marginEnd="64dp"
+        android:text="@string/view_expense_in_menu"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tvMenuTitle"
+        app:layout_constraintTop_toBottomOf="@+id/tvMenuTitle" />
+
+    <Button
+        android:id="@+id/btAddExpense"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="64dp"
+        android:text="@string/add_expense_in_menu"
+        app:layout_constraintBottom_toBottomOf="@+id/btViewExpense"
+        app:layout_constraintEnd_toStartOf="@+id/tvMenuTitle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/btViewExpense"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/btExit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="64dp"
+        android:text="@string/exit_in_menu"
+        app:layout_constraintEnd_toEndOf="@+id/btViewExpense"
+        app:layout_constraintStart_toStartOf="@+id/btAddExpense"
+        app:layout_constraintTop_toBottomOf="@+id/btAddExpense" />
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="categories">
+        <item>Select</item>
+        <item>Food and Drinks</item>
+        <item>Entertainment</item>
+        <item>Shopping</item>
+        <item>Travel</item>
+        <item>School</item>
+        <item>Necessity</item>
+        <item>Rent</item>
+    </string-array>
+
+    <string-array name="payment_types">
+        <item>Select</item>
+        <item>Cash</item>
+        <item>E-Wallet</item>
+        <item>Debit Card</item>
+        <item>Credit Card</item>
+    </string-array>
+</resources>

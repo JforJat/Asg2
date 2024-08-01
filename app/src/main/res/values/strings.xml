@@ -1,0 +1,33 @@
+<resources>
+    <string name="app_name">Asg2</string>
+    <string name="expense_name_in_item">Expense Name</string>
+    <string name="amount_in_item">Amount</string>
+    <string name="category_in_item">Category</string>
+    <string name="date_in_item">Date</string>
+    <string name="time_in_item">Time</string>
+    <string name="payment_type_in_item">Payment Type</string>
+    <string name="note_in_activity">Note</string>
+    <string name="submit_in_activity">Submit</string>
+    <string name="select_time_in_activity">Select Time</string>
+    <string name="select_date_in_activity">Select Date</string>
+    <string name="amount_et_in_main">Amount</string>
+    <string name="expense_name_in_main">Expense Name</string>
+    <string name="notes_in_main">Notes:</string>
+    <string name="payment_type_in_main">Payment Type:</string>
+    <string name="time_in_main">Time:</string>
+    <string name="date_in_main">Date:</string>
+    <string name="category_in_main">Category:</string>
+    <string name="name_in_main">Name:</string>
+    <string name="amount_tv_in_main">Amount:</string>
+    <string name="daily_expense_in_main">Daily Expense</string>
+    <string name="view_expense_in_menu">View Expense</string>
+    <string name="add_expense_in_menu">Add expense</string>
+    <string name="exit_in_menu">Exit</string>
+    <string name="expense_name_in_dialog">Expense Name</string>
+    <string name="amount_in_dialog">Amount</string>
+    <string name="date_in_dialog">Date</string>
+    <string name="time_in_dialog">Time</string>
+    <string name="back_to_main_menu_in_activity">Back to Main Menu</string>
+    <string name="edit_in_item">Edit</string>
+    <string name="main_menu_in_main">Main Menu</string>
+</resources>
