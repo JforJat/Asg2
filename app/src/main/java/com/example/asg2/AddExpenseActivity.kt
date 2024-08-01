@@ -3,6 +3,7 @@ package com.example.asg2
 import android.annotation.SuppressLint
 import android.app.DatePickerDialog
 import android.app.TimePickerDialog
+import android.content.Intent
 import android.os.Bundle
 import android.widget.ArrayAdapter
 import android.widget.Button
@@ -125,7 +126,6 @@ class AddExpenseActivity : AppCompatActivity() {
         }
     }
 
-    // Show confirmation dialog
     private fun showConfirmationDialog(expenseEntity: Expense_Entity) {
         val builder = AlertDialog.Builder(this)
         builder.setTitle("Confirm Expense")
@@ -140,13 +140,19 @@ class AddExpenseActivity : AppCompatActivity() {
         )
 
         builder.setPositiveButton("Confirm") { _, _ ->
-            //viewExpenseActivity.insert(expenseEntity)
+            // Here, you can add the expense to the database or perform necessary actions
+
+            // Show a toast message
             showToast("Expense added")
-            clearInputs()
+
+            // Redirect to MainActivity
+            val intent = Intent(this, MainMenu::class.java)
+            startActivity(intent)
+            finish()  // Close the current activity
         }
 
         builder.setNegativeButton("Edit") { dialog, _ ->
-            dialog.dismiss()
+            dialog.dismiss()  // Close the dialog and allow the user to edit
         }
 
         builder.create().show()
