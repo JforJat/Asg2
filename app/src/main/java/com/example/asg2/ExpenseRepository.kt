@@ -5,22 +5,22 @@ import androidx.lifecycle.LiveData
 class ExpenseRepository(private val expenseDao: ExpenseDao) {
 
     // Function to insert an expense into the database
-    suspend fun insert(expense: Expense) {
-        expenseDao.insert(expense)
+    suspend fun insert(expenseEntity: Expense_Entity) {
+        expenseDao.insert(expenseEntity)
     }
 
     // Function to update an existing expense
-    suspend fun update(expense: Expense) {
-        expenseDao.update(expense)
+    suspend fun update(expenseEntity: Expense_Entity) {
+        expenseDao.update(expenseEntity)
     }
 
     // Function to delete a specific expense
-    suspend fun delete(expense: Expense) {
-        expenseDao.delete(expense)
+    suspend fun delete(expenseEntity: Expense_Entity) {
+        expenseDao.delete(expenseEntity)
     }
 
     // Function to get all expenses as LiveData
-    fun getAllExpenses(): LiveData<List<Expense>> {
+    fun getAllExpenses(): LiveData<List<Expense_Entity>> {
         return expenseDao.getAllExpenses()
     }
 }

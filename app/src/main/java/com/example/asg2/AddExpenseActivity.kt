@@ -20,7 +20,6 @@ class AddExpenseActivity : AppCompatActivity() {
     @SuppressLint("SetTextI18n", "DefaultLocale", "MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        // enableEdgeToEdge()
         setContentView(R.layout.activity_add_expense)
 
         // Setup Category Spinner
@@ -98,6 +97,7 @@ class AddExpenseActivity : AppCompatActivity() {
             val dateText = etDate.text.toString()
             val timeText = etTime.text.toString()
             val selectedPayment = spinnerPayment.selectedItem.toString()
+            val notes = findViewById<EditText>(R.id.etNotes).text.toString()
 
             // Validate inputs
             when {
@@ -107,37 +107,40 @@ class AddExpenseActivity : AppCompatActivity() {
                 dateText.isEmpty() -> showToast("Please select a date")
                 timeText.isEmpty() -> showToast("Please select a time")
                 selectedPayment == "Select" -> showToast("Please select a payment type")
+
                 else -> {
-                    val expense = Expense(
+                    val expenseEntity = Expense_Entity(
                         expenseName = expenseName,
                         amount = amount,
                         category = selectedCategory,
                         date = dateText,
                         time = timeText,
-                        paymentType = selectedPayment
+                        paymentType = selectedPayment,
+                        notes = notes
                     )
                     // Show confirmation dialog
-                    showConfirmationDialog(expense)
+                    showConfirmationDialog(expenseEntity)
                 }
             }
         }
     }
 
     // Show confirmation dialog
-    private fun showConfirmationDialog(expense: Expense) {
+    private fun showConfirmationDialog(expenseEntity: Expense_Entity) {
         val builder = AlertDialog.Builder(this)
         builder.setTitle("Confirm Expense")
         builder.setMessage(
-            "Expense Name: ${expense.expenseName}\n" +
-                    "Amount: ${expense.amount}\n" +
-                    "Category: ${expense.category}\n" +
-                    "Date: ${expense.date}\n" +
-                    "Time: ${expense.time}\n" +
-                    "Payment Type: ${expense.paymentType}"
+            "Expense Name: ${expenseEntity.expenseName}\n" +
+                    "Amount: ${expenseEntity.amount}\n" +
+                    "Category: ${expenseEntity.category}\n" +
+                    "Date: ${expenseEntity.date}\n" +
+                    "Time: ${expenseEntity.time}\n" +
+                    "Payment Type: ${expenseEntity.paymentType}\n" +
+                    "Note: ${expenseEntity.notes.ifEmpty { "-" }}"
         )
 
         builder.setPositiveButton("Confirm") { _, _ ->
-            viewExpenseActivity.insert(expense)
+            viewExpenseActivity.insert(expenseEntity)
             showToast("Expense added")
             clearInputs()
         }
@@ -163,5 +166,6 @@ class AddExpenseActivity : AppCompatActivity() {
         findViewById<EditText>(R.id.etTime).text.clear()
         findViewById<Spinner>(R.id.spCategory).setSelection(0)
         findViewById<Spinner>(R.id.spPayment).setSelection(0)
+        findViewById<EditText>(R.id.etNotes).text.clear()
     }
 }

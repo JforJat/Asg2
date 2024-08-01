@@ -9,17 +9,17 @@ import androidx.recyclerview.widget.RecyclerView
 
 class ExpenseAdapter(
     // Callback function for item click
-    private val onItemClick: (Expense) -> Unit,
+    private val onItemClick: (Expense_Entity) -> Unit,
 ) : RecyclerView.Adapter<ExpenseAdapter.ExpenseViewHolder>() {
 
     // List of expenses
-    private var expenses = listOf<Expense>()
+    private var expens = listOf<Expense_Entity>()
 
     @SuppressLint("NotifyDataSetChanged")
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ExpenseViewHolder {
         // Inflate the item layout
         val itemView =
-            LayoutInflater.from(parent.context).inflate(R.layout.item_expense, parent, false)
+            LayoutInflater.from(parent.context).inflate(R.layout.activity_view_expense, parent, false)
         // Return a new ViewHolder
         return ExpenseViewHolder(itemView)
     }
@@ -27,7 +27,7 @@ class ExpenseAdapter(
     // Bind data to the ViewHolder
     @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(holder: ExpenseViewHolder, position: Int) {
-        val currentExpense = expenses[position]
+        val currentExpense = expens[position]
         holder.expenseName.text = currentExpense.expenseName
         holder.amount.text = currentExpense.amount
         holder.category.text = currentExpense.category
@@ -43,13 +43,13 @@ class ExpenseAdapter(
 
     // Return the number of expenses
     override fun getItemCount(): Int {
-        return expenses.size
+        return expens.size
     }
 
     // Update the list of expenses
     @SuppressLint("NotifyDataSetChanged")
-    fun submitList(newExpenses: List<Expense>) {
-        expenses = newExpenses
+    fun submitList(newExpens: List<Expense_Entity>) {
+        expens = newExpens
         notifyDataSetChanged()
     }
 

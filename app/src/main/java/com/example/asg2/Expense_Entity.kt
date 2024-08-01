@@ -5,7 +5,7 @@ import androidx.room.PrimaryKey
 
 // Expense entity
 @Entity(tableName = "expenses")
-data class Expense(
+data class Expense_Entity(
     @PrimaryKey(autoGenerate = true) val id: Int = 0,
     val expenseName: String,
     val amount: String,
@@ -13,4 +13,5 @@ data class Expense(
     val date: String,
     val time: String,
     val paymentType: String,
+    val notes: String,
 )

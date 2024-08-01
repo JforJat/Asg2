@@ -8,9 +8,9 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 class ViewExpenseActivity(application: Application) : AndroidViewModel(application) {
-
     private val repository: ExpenseRepository
-    val allExpenses: LiveData<List<Expense>>
+    val allExpenses: LiveData<List<Expense_Entity>>
+
 
     init {
         val expenseDao = ExpenseDatabase.getDatabase(application).expenseDao()
@@ -19,17 +19,17 @@ class ViewExpenseActivity(application: Application) : AndroidViewModel(applicati
     }
 
     // Function to insert an expense
-    fun insert(expense: Expense) = viewModelScope.launch(Dispatchers.IO) {
-        repository.insert(expense)
+    fun insert(expenseEntity: Expense_Entity) = viewModelScope.launch(Dispatchers.IO) {
+        repository.insert(expenseEntity)
     }
 
     // Function to update an existing expense
-    fun update(expense: Expense) = viewModelScope.launch(Dispatchers.IO) {
-        repository.update(expense)
+    fun update(expenseEntity: Expense_Entity) = viewModelScope.launch(Dispatchers.IO) {
+        repository.update(expenseEntity)
     }
 
     // Function to delete a specific expense
-    fun delete(expense: Expense) = viewModelScope.launch(Dispatchers.IO) {
-        repository.delete(expense)
+    fun delete(expenseEntity: Expense_Entity) = viewModelScope.launch(Dispatchers.IO) {
+        repository.delete(expenseEntity)
     }
 }

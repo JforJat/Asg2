@@ -13,14 +13,14 @@ interface ExpenseDao {
     // Define database operations
 
     @Insert
-    suspend fun insert(expense: Expense)
+    suspend fun insert(expenseEntity: Expense_Entity)
 
     @Update
-    suspend fun update(expense: Expense)
+    suspend fun update(expenseEntity: Expense_Entity)
 
     @Delete
-    suspend fun delete(expense: Expense)
+    suspend fun delete(expenseEntity: Expense_Entity)
 
     @Query("SELECT * FROM expenses")
-    fun getAllExpenses(): LiveData<List<Expense>>
+    fun getAllExpenses(): LiveData<List<Expense_Entity>>
 }
