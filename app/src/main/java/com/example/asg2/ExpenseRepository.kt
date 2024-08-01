@@ -4,6 +4,7 @@ import android.app.Application
 import androidx.lifecycle.LiveData
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 class ExpenseRepository(application: Application) {
     private var expenseDao: ExpenseDao
@@ -19,21 +20,25 @@ class ExpenseRepository(application: Application) {
 
     // Function to insert an expense into the database
     fun insert(expenseEntity: Expense) {
-        expenseDao.addExpense(expenseEntity)
+        coroutineScope.launch (Dispatchers.IO) {
+            expenseDao.addExpense(expenseEntity)
+        }
     }
 
     // Function to update an existing expense
      fun update(expenseEntity: Expense) {
-        expenseDao.updateExpense(expenseEntity)
+        coroutineScope.launch (Dispatchers.IO) {
+            expenseDao.updateExpense(expenseEntity)
+        }
     }
 
     // Function to delete a specific expense
      fun delete(expenseEntity: Expense) {
-        expenseDao.deleteExpense(expenseEntity)
+            expenseDao.deleteExpense(expenseEntity)
     }
 
     fun getExpense(id: Int): LiveData<List<Expense>> {
-        return expenseDao.getExpense(id)
+            return expenseDao.getExpense(id)
     }
 
     // Function to get all expenses as LiveData

@@ -2,7 +2,7 @@ package com.example.asg2
 
 import android.content.Context
 import androidx.room.Database
-import androidx.room.Room
+import androidx.room.Room.databaseBuilder
 import androidx.room.RoomDatabase
 import androidx.sqlite.db.SupportSQLiteDatabase
 import kotlinx.coroutines.CoroutineScope
@@ -52,7 +52,7 @@ abstract class ExpenseDatabase : RoomDatabase() {
         fun getDatabase(context: Context): ExpenseDatabase? {
             if (dbInstance == null) {
                 synchronized(ExpenseDatabase::class.java) {
-                    dbInstance = Room.databaseBuilder(
+                    dbInstance = databaseBuilder(
                         context.applicationContext,
                         ExpenseDatabase::class.java, "app_database"
                     )
