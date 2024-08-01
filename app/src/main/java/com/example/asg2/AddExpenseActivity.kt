@@ -148,9 +148,7 @@ class AddExpenseActivity : AppCompatActivity() {
 
         builder.create().show()
     }
-
-
-
+    
     // Helper functions
     private fun showToast(message: String) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show()

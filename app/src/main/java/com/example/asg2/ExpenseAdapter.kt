@@ -61,5 +61,6 @@ class ExpenseAdapter(
         val date: TextView = itemView.findViewById(R.id.date)
         val time: TextView = itemView.findViewById(R.id.time)
         val paymentType: TextView = itemView.findViewById(R.id.payment_type)
+
     }
 }
