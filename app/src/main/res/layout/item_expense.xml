@@ -1,16 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#89cff0"
+    android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:padding="8dp">
+    android:padding="16dp">
 
     <TextView
         android:id="@+id/expense_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/expense_name_in_item"
+        android:text="Expense Name"
         android:textSize="16sp"
         android:textStyle="bold" />
 
@@ -18,66 +17,36 @@
         android:id="@+id/amount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/amount_in_item"
+        android:text="Amount"
         android:textSize="14sp" />
 
     <TextView
         android:id="@+id/category"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/category_in_item"
+        android:text="Category"
         android:textSize="14sp" />
 
     <TextView
         android:id="@+id/date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/date_in_item"
+        android:text="Date"
         android:textSize="14sp" />
 
     <TextView
         android:id="@+id/time"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/time_in_item"
+        android:text="Time"
         android:textSize="14sp" />
 
     <TextView
         android:id="@+id/payment_type"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/payment_type_in_item"
+        android:text="Payment Type"
         android:textSize="14sp" />
 
-    <Button
-        android:id="@+id/btnEditExpense"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
-        android:padding="10dp"
-        android:onClick="showEditDialog"
-        android:text="@string/edit_in_item" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:orientation="vertical"
-        android:padding="8dp"
-        android:background="#ffffff" />
-
-    <Button
-        android:id="@+id/btnBackToMainMenu"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
-        android:padding="10dp"
-        android:onClick="goToMainMenu"
-        android:text="@string/back_to_main_menu_in_activity" />
-
 </LinearLayout>
+
