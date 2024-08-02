@@ -31,20 +31,20 @@ abstract class ExpenseDatabase : RoomDatabase() {
                     // Check if there is no default reporter
                     val expenseCount = expenseDao.getExpenseCount()
 
-                    if (expenseCount == 0) {
-                        // Add a default reporter
-                        expenseDao.addExpense(
-                            Expense(
-                                expenseName = "Default Expense",
-                                amount = 0.00,
-                                category = "Default Category",
-                                date = "Default Date",
-                                time = "Default Time",
-                                paymentType = "Default Payment Type",
-                                notes = ""
-                            )
-                        )
-                    }
+//                    if (expenseCount == 0) {
+//                        // Add a default reporter
+//                        expenseDao.addExpense(
+//                            Expense(
+//                                expenseName = "Default Expense",
+//                                amount = 0.00,
+//                                category = "Default Category",
+//                                date = "Default Date",
+//                                time = "Default Time",
+//                                paymentType = "Default Payment Type",
+//                                notes = ""
+//                            )
+//                        )
+//                    }
                 }
             }
         }

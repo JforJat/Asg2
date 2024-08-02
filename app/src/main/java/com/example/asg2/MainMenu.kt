@@ -8,7 +8,6 @@ import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 
 class MainMenu : AppCompatActivity() {
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         installSplashScreen()
@@ -17,7 +16,6 @@ class MainMenu : AppCompatActivity() {
         val btViewExpense: Button = findViewById(R.id.btViewExpense)
         val btAddExpense: Button = findViewById(R.id.btAddExpense)
         val btExit: Button = findViewById(R.id.btExit)
-
 
         // Set click listeners for buttons
         btViewExpense.setOnClickListener {

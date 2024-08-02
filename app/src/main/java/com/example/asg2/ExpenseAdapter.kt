@@ -8,7 +8,8 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.asg2.Data.Expense
 
-class ExpenseAdapter(context: Context, expenseList: ArrayList<Array<String>>) : RecyclerView.Adapter<ExpenseAdapter.ExpenseViewHolder>() {
+class ExpenseAdapter(context: Context, expenseList: ArrayList<Array<String>>) :
+    RecyclerView.Adapter<ExpenseAdapter.ExpenseViewHolder>() {
 
     // List of expenses
     private var expens = listOf<Expense>()
@@ -20,18 +21,20 @@ class ExpenseAdapter(context: Context, expenseList: ArrayList<Array<String>>) : 
     inner class ExpenseViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var expenseName: TextView
         var amount: TextView
-        //var category: TextView
+        var category: TextView
         var date: TextView
-        //var time: TextView
-        //var paymentType: TextView
+        var time: TextView
+        var paymentType: TextView
+        var notes: TextView
 
         init {
             expenseName = itemView.findViewById(R.id.expense_name)
             amount = itemView.findViewById(R.id.expense_amount)
-            //category = itemView.findViewById(R.id.category)
+            category = itemView.findViewById(R.id.expense_category)
             date = itemView.findViewById(R.id.expense_date)
-            //time = itemView.findViewById(R.id.time)
-            //paymentType = itemView.findViewById(R.id.payment_type)
+            time = itemView.findViewById(R.id.expense_time)
+            paymentType = itemView.findViewById(R.id.expense_payment_type)
+            notes = itemView.findViewById(R.id.expense_note)
         }
     }
 
@@ -54,9 +57,10 @@ class ExpenseAdapter(context: Context, expenseList: ArrayList<Array<String>>) : 
         // Set the data
         holder.expenseName.text = expense[0]
         holder.amount.text = expense[1]
-        //holder.category.text = expense[2]
-        holder.date.text = expense[2]
-        //holder.time.text = expense[4]
-        //holder.paymentType.text = expense[5]
+        holder.category.text = expense[2]
+        holder.date.text = expense[3]
+        holder.time.text = expense[4]
+        holder.paymentType.text = expense[5]
+        holder.notes.text = expense[6]
     }
 }

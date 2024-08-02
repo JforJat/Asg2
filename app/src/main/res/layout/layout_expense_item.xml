@@ -4,34 +4,92 @@
     android:layout_height="wrap_content">
 
     <LinearLayout
-        android:id="@+id/expense_item_row"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="16dp">
+        android:orientation="vertical">
 
-
-        <TextView
-            android:id="@+id/expense_name"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:id="@+id/expense_item_row1"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="4"
-            android:text="Name" />
+            android:orientation="horizontal"
+            android:padding="16dp">
 
-        <TextView
-            android:id="@+id/expense_amount"
-            android:layout_width="wrap_content"
+
+            <TextView
+                android:id="@+id/expense_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:text="Name" />
+
+            <TextView
+                android:id="@+id/expense_amount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:text="Amount" />
+
+            <TextView
+                android:id="@+id/expense_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:text="Date" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/expense_item_row2"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="4"
-            android:text="Amount" />
+            android:orientation="horizontal"
+            android:padding="16dp">
 
-        <TextView
-            android:id="@+id/expense_date"
-            android:layout_width="wrap_content"
+
+            <TextView
+                android:id="@+id/expense_category"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="5"
+                android:text="category" />
+
+            <TextView
+                android:id="@+id/expense_payment_type"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:text="Payment Type" />
+
+            <TextView
+                android:id="@+id/expense_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:text="Time" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/expense_item_row3"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="4"
-            android:text="Date" />
+            android:orientation="horizontal"
+            android:padding="16dp">
 
+
+            <TextView
+                android:id="@+id/expense_note"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Notes" />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@color/black" />
 
     </LinearLayout>
 

@@ -27,7 +27,7 @@ class ViewExpenseActivity : AppCompatActivity() {
         expenseViewModel.getAllExpenses()?.observe(this) {
             it.let {
                 for (expense in it) {
-                    expenseList.add(arrayOf(expense.expenseName, expense.amount.toString(), expense.date))
+                    expenseList.add(arrayOf(expense.expenseName, expense.amount.toString(), expense.category, expense.date, expense.time, expense.paymentType, expense.notes))
                 }
                 adapter?.notifyDataSetChanged()
             }
